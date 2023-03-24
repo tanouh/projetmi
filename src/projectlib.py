@@ -1,4 +1,4 @@
-import thresholding.py
+import thresholding
 
 def switch_algo(algo, img):
 	if algo == 1 :

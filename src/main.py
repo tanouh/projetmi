@@ -1,4 +1,5 @@
 import argparse
+import projectlib
 from PIL import Image
 
 # Définition des arguments de ligne de commande
@@ -9,12 +10,11 @@ parser.add_argument('algo', type=int, help='la version de l\'algorithme utilisé
 # Analyse des arguments de ligne de commande
 args = parser.parse_args()
 
-
 # Ouverture de l'image
 img = Image.open(args.image)
 algo = args.algo
 
-img.show()
+projectlib.switch_algo(algo, img)
 
 
 
