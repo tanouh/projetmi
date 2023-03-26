@@ -2,9 +2,6 @@ def get_ths():
 	return int(input("Saisir la valeur du seuil [entre 0 et 255]: "))
 
 def threshold(img,seuil):
-    	# Conversion de l'image en niveaux de gris
-	img = img.convert('L')
-
 	# Réduction en demi-tons
 	pixels = img.load()
 	for i in range(img.size[0]):
