@@ -12,4 +12,5 @@ def threshold(img,seuil):
 				pixels[i,j] = 255
 
 	# Affichage de l'image résultante
-	img.show()
+	# img.show()
+	img.save("resources/result_treshold.jpg", "jpeg")
