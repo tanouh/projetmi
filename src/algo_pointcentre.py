@@ -8,6 +8,8 @@ def get_sztr():
 def paint(trame, x, y, base, treshold, cpt):
     if (cpt < treshold):
         trame[x][y] = 255 - base
+    else:
+        trame[x][y] = base
 
 
 def getTrame(intensity, sizeZone):
@@ -15,7 +17,7 @@ def getTrame(intensity, sizeZone):
     if (intensity > 127):
         base = 255
     trame = [[base for i in range(sizeZone+1)] for j in range(sizeZone+1)]
-    treshold = (intensity/255)*sizeZone*sizeZone/2
+    treshold = (intensity/255)*sizeZone*sizeZone
     cx, cy = sizeZone//2, sizeZone//2
     cpt = 1
     m = 1
@@ -63,6 +65,7 @@ def pointCentre(img, sizeTrame):
                 sizeTrameX = width-x
             if (y > height-sizeTrame):
                 sizeTrameY = height-y
+
             for i in range(sizeTrameX):
                 for j in range(sizeTrameY):
                     if (pixels[x+i, y+j] != 0 and pixels[x+i, y+j] != 255):
@@ -75,6 +78,5 @@ def pointCentre(img, sizeTrame):
             trame = getTrame(zoneIntensity, sizeTrame)
             for i in range(sizeTrameX):
                 for j in range(sizeTrameY):
-                    tmp = pixels[x+i, y+j]
                     pixels[x+i, y+j] = trame[i][j]
     img.save("resources/result.jpg", "jpeg")
