@@ -16,8 +16,8 @@ def getTrame(intensity, sizeZone):
     base = 0
     if (intensity > 127):
         base = 255
+    treshold = (abs(base-intensity)/255)*sizeZone*sizeZone
     trame = [[base for i in range(sizeZone+1)] for j in range(sizeZone+1)]
-    treshold = (intensity/255)*sizeZone*sizeZone
     cx, cy = sizeZone//2, sizeZone//2
     cpt = 1
     m = 1
@@ -76,7 +76,9 @@ def pointCentre(img, sizeTrame):
             if (change == 0):
                 continue
             trame = getTrame(zoneIntensity, sizeTrame)
+
             for i in range(sizeTrameX):
                 for j in range(sizeTrameY):
                     pixels[x+i, y+j] = trame[i][j]
+
     img.save("resources/result.jpg", "jpeg")
