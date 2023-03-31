@@ -14,6 +14,9 @@ args = parser.parse_args()
 img = Image.open(args.image)
 algo = args.algo
 
+#Conversion de l'image en niveaux de gris
+img = img.convert('L')
+
 projectlib.switch_algo(algo, img)
 
 
