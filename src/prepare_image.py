@@ -10,11 +10,7 @@ def cut_img(img, sizeTrame, format, algo):
     width, height = img.size
     cpt = 0
 
-    # if (format == 2):
-    #     if (algo == 2):
-    #         version =
-    #     else:
-    # else :
+    print(width,height)
     if (format == 2):
         version = algo_diag.getTrameDiag
         ratio = 2
