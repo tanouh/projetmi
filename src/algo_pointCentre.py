@@ -1,10 +1,10 @@
 from PIL import Image
 
-def getTrameCentre(intensity, sizeZone, paint):
+def getTrameCentre(intensity, sizeZone, paint, ratio):
     base = 0
     if (intensity > 127):
         base = 255
-    treshold = (abs(base-intensity)/255)*sizeZone*sizeZone
+    treshold = (abs(base-intensity)/255)*sizeZone*sizeZone*ratio
     trame = [[base for i in range(sizeZone+1)] for j in range(sizeZone+1)]
     cx, cy = sizeZone//2, sizeZone//2
     cpt = 1

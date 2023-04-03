@@ -1,6 +1,5 @@
 import thresholding
-import algo_horiz
-import algo_vert
+import prepare_image
 
 def get_sztr():
     return int(input("Saisir la taille d'un element de trame : "))
@@ -12,13 +11,9 @@ def switch_algo(algo, img):
 		return
 	if algo == 2 :
 		sizeTrame = get_sztr()
+		format = int(input("1 pour vert, 2 pour diag : "))
 		algo = int(input("1 pour pointCentre, 2 pour disperse : "))
-		algo_horiz.horiz(img,sizeTrame, algo)
-		return
-	if algo == 3 :
-		sizeTrame = get_sztr()
-		algo = int(input("1 pour pointCentre, 2 pour disperse : "))
-		algo_vert.vert(img,sizeTrame, algo)
+		prepare_image.cut_img(img,sizeTrame, format, algo)
 		return
 	else:
 		print('Algorithme inconnu\n')
