@@ -1,6 +1,7 @@
 import lib
 import algo_diag
 import algo_pointCentre
+import algo_pointDisperse
 from PIL import Image
 
 
@@ -15,9 +16,11 @@ def cut_img(img, sizeTrame, format, algo):
         version = algo_diag.getTrameDiag
         ratio = 2
     else:
-        version = algo_pointCentre.getTrameCentre
-        ratio = 1
-
+        ratio = 1 
+        if (algo == 1) :
+             version = algo_pointCentre.getTrameCentre
+        else: 
+            version = algo_pointDisperse.getTrameDispersee      
     for x in range(0, width, sizeTrame):
         for y in range(0, height, sizeTrame):
             cpt += 1
